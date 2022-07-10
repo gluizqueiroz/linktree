@@ -11,24 +11,46 @@
   <!-- Essa tag serve pra responsividade, nessa tag falamos que a largura do viewport será a largura do dispositivo -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Linktree</title>
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">k
+  <script src="https://kit.fontawesome.com/efad3e6959.js" crossorigin="anonymous"></script>
+  <script>
+    function changeTheme(color) {
+        var cssClass = document.getElementById('body').classList.value;
+        
+        if(cssClass.includes('dark') > 0){
+            document.getElementById('body').removeAttribute('class');
+            document.getElementById('body').classList.add('light-' + color);
+        }
+        else{
+            document.getElementById('body').removeAttribute('class');
+            document.getElementById('body').classList.add('dark-' + color);
+        }
+    }
+  </script> 
 </head>
-<body class="dark-blue">
+<body id="body" class="dark-blue">
   <div class="container">
     <img class="avatar" src="https://media-exp2.licdn.com/dms/image/C4D03AQFGO5Uk3ANaBw/profile-displayphoto-shrink_200_200/0/1657417177399?e=1663200000&v=beta&t=sxTQ3Z9i5DVD4YPGS__YDoaEdOdbYbFrrp8f7_fDkyQ" alt="Foto de perfil do Gabriel com a Torre Eiffel ao fundo">
 
-    <h1 class="name"> Gabriel Queiroz </h1>
+    <h1 class="name"> Gabriel Queiroz </h1> 
     <p class="username"> @gluizqueiroz </p>
 
     <ul>
-        <li><a href="http://linkedin.com/in/gluizqueiroz" target="_blank"> Linkedin </a></li>
-        <li><a href="http://youtube.com/gluizqueiroz" target="_blank"> Youtube </a></li>
-        <li><a href="http://twitter.com" target="_blank"> Twitter </a></li>
-        <li><a href="http://github.com/gluizqueiroz" target="_blank"> Github </a></li>
+        <li><a href="https://linkedin.com/in/gluizqueiroz" target="_blank"> Linkedin </a></li>
+        <li><a href="https://www.youtube.com/channel/UCsAE-h2UWWHBltXAPkG483A" target="_blank"> Youtube </a></li>
+        <li><a href="https://github.com/gluizqueiroz" target="_blank"> Github </a></li>
+        <li><a href="http://instagram.com/gluizqueiroz" target="_blank"> Instagram </a></li>
     </ul>
 
-    <footer>Ensinado com ❤️ pela <a href="https://rocketseat.com.br" target="_blank"> Rocketseat </a></footer>
+    <div class="icon-theme">  
+      <i class="fa-solid fa-droplet" onclick="changeTheme('blue')"></i>
+      <i class="fa-solid fa-tree" onclick="changeTheme('green')"></i>
+      <i class="fa-solid fa-apple-whole" onclick="changeTheme('pink')"></i>
+      <i class="fa-solid fa-sun" onclick="changeTheme('yellow')"></i>
     </div>
+    
+    <footer><a href="https://rocketseat.com.br" target="_blank"> Ensinado com ❤️ pela Rocketseat </a></footer>
+  </div>
 </body>
 </html>
