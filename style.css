@@ -1,0 +1,163 @@
+/* 
+  Box Model: 
+    > Tudo são caixas, todos os elementos HTML serão considerados uma caixa. 
+    > As caixas possuem determinadas propriedades, como por exemplo: 
+      - Conteúdo
+      - Largura
+      - Altura
+      - Borda
+      - Preenchimento (espaço interno)
+      - Espaçamento (espaço externo)
+  Cascata: As declarações são lidas em sequencia, então as ultimas tem prioridade devido a sequencia
+  Especificidade: 
+    > Referenciar pelo #id = Peso 100, é o mais forte das espcificidades, mais forte que a cascata
+    > Referenciar pela .classe = Peso 10, mais forte que o elemento e a cascata, porém mais fraco que o #id
+    > Referenciar o elemento = Peso 1, mais fraco de todos e a cascata é mais forte ainda
+    - Pode combar as especifidades, utilizando por exemplo: "div.dark", chama um elemento e referencia a classe
+*/
+/* Zerando as propriedades que o navegador coloca por padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Sempre que usar largura, altura, padding sempre vai a contar a partir da borda o conteudo dela, se nao colocar essa funcionalidade, ele começa a contar a partir do conteudo, exemplo: Se deixar o padrão, colocar o .container como 300px de width, o .container terá os 300px, mas se colocar um padding de 40px dentro do .container, o .container não terá mais os 300px e sim 380px, pois os 300px de largura vão ser apenas pro conteudo*/
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  body.light-blue {
+    --bg-color: #EDF2FF;
+    --name-color: #00082F;
+    --bg-list-color: #4263EB;
+    --bg-list-color-hover: #364FC7;
+  }
+  
+  body.dark-blue {
+    --bg-color: #00082F;
+    --name-color: #FFFFFF;
+    --bg-list-color: #4263EB;
+    --bg-list-color-hover: #364FC7;
+  }
+  
+  body.light-pink {
+    --bg-color: #EDF2FF;
+    --name-color: #00082F;
+    --bg-list-color: #D6336C;
+    --bg-list-color-hover: #A61E4D;
+  }
+  
+  body.dark-pink {
+    --bg-color: #1f010b;
+    --name-color: #FFFFFF;
+    --bg-list-color: #D6336C;
+    --bg-list-color-hover: #A61E4D;
+  }
+  
+  body.light-green {
+    --bg-color: #EDF2FF;
+    --name-color: #00082F;
+    --bg-list-color: #306844;
+    --bg-list-color-hover: #2C4C3B;
+  }
+  
+  body.dark-green {
+    --bg-color: #182C25;
+    --name-color: #FFFFFF;
+    --bg-list-color: #306844;
+    --bg-list-color-hover: #2C4C3B;
+  }
+  
+  body.light-yellow {
+    --bg-color: #EDF2FF;
+    --name-color: #00082F;
+    --bg-list-color: #BDA800;
+    --bg-list-color-hover: #938200;
+  }
+  
+  body.dark-yellow {
+    --bg-color: #333201;
+    --name-color: #FFFFFF;
+    --bg-list-color: #BDA800;
+    --bg-list-color-hover: #938200;
+  }
+  
+  body {
+    background: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .container {
+    text-align: center;
+    width: 350px;
+    margin: 60px auto 0px auto; /* Margem superior 60px e inferior 0 e esquerda e direita automatico no tamanho da tela */
+    padding: 0px 40px;
+  }
+  
+  img {
+    width: 100%; /* Atribuir 100% para a img para que ela sempre tenha 100% do width da caixa que ela está */ 
+  }
+  
+  img.avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 4px solid var(--bg-list-color);
+    padding: 3.7px;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 48px 0;
+  }
+  
+  h1.name {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-size: 32px;
+    color: var(--name-color);
+  }
+  
+  .username {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-size: 18px;
+    opacity: 0.8;
+    color: var(--name-color);
+  }
+  
+  ul li a {
+    height: 53px;
+    display: flex; /* O height da linha anterior só funciona por conta deste display: flex, display é uma propriedade relativa em como as caixas se comportam em relação as caixas irmãs (as que estão ao lado). O display padrão para "img" e "a" é o display: inline, ela significa que as caixas ao lado dela que também forem inline ficarão ao lado e significa também que só ocupam o tamanho do conteudo, não recebe propriedades e altura, largura, margem superior/inferior e afins, por conta do display: inline. O display: flex também destrava algumas propriedades como margem, largura, altura e afins, só que ele também coloca propriedades pra dentro da caixa que outros display (tipo inline e block) não colocam, tipo o "align-items" e o "justify-content" abaixo, eles também só funcionam por conta do display: flex*/
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-list-color);
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+  
+    transition: background 400ms; /* Propriedade que fala pra aplicar tal transição quando for sofrer uma mudança na propriedade informada, no nosso caso, é pro ul li a:hover abaixo */
+  }
+  
+  /* Pseudo-class */
+  ul li a:hover {
+    background: var(--bg-list-color-hover);
+  }
+  
+  footer {
+    font-weight: 500;
+    font-size: 12px;
+    opacity: 0.7;
+    color: var(--name-color);
+    transform: opacity 400ms;
+  }
+  
+  footer:hover {
+    opacity: 1;
+  }
+  
+  footer a {
+    color: var(--name-color);
+  }
