@@ -145,22 +145,6 @@ ul li a:hover {
     background: var(--bg-list-color-hover);
 }
 
-footer {
-    font-weight: 500;
-    font-size: 12px;
-    opacity: 0.7;
-    color: var(--name-color);
-    transition: opacity 400ms;
-}
-
-footer:hover {
-    opacity: 1;
-}
-
-footer a {
-    color: var(--name-color);
-}
-
 div.icon-theme {
     width: 100%;
     margin: 30px 0px 25px 0px;
